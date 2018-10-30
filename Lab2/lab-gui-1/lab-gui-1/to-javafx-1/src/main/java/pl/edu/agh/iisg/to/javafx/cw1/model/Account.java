@@ -2,10 +2,7 @@ package pl.edu.agh.iisg.to.javafx.cw1.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Account {
 

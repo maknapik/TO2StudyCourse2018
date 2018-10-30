@@ -1,13 +1,17 @@
 package pl.edu.agh.iisg.to.javafx.cw1;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pl.edu.agh.iisg.to.javafx.cw1.controller.AccountOverviewController;
+import pl.edu.agh.iisg.to.javafx.cw1.model.Account;
 import pl.edu.agh.iisg.to.javafx.cw1.model.generator.DataGenerator;
 
 public class Main extends Application {
@@ -31,16 +35,18 @@ public class Main extends Application {
 			// load layout from FXML file
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("view/AccountOverviewPane.fxml"));
-			BorderPane rootLayout = (BorderPane) loader.load();
+			BorderPane rootLayout = loader.load();
 
 			// set initial data into controller
+			Account account = DataGenerator.generateAccountData();
 			AccountOverviewController controller = loader.getController();
-			controller.setData(DataGenerator.generateAccountData());
+			controller.setData(account);
 
 			// add layout to a scene and show them all
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			account.getTransactions().get(0).setPayee(new SimpleStringProperty("E"));
 
 		} catch (IOException e) {
 			// don't do this in common apps
