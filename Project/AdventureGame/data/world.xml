@@ -1,0 +1,29 @@
+<world width="2" height="2">
+	<cell type="room">
+		<npc type="ghost">
+			<HP>100</HP>
+			<power>50</power>
+		</npc>
+		<npc type="lion">
+			<HP>20</HP>
+			<power>15</power>
+		</npc>
+		<chest>
+			<item type="weapon">
+                <name>Sword</name>
+				<power>10</power>
+			</item>
+		</chest>
+	</cell>
+	
+	<cell type="room">
+		<npc type="lion">
+			<HP>20</HP>
+			<power>15</power>
+		</npc>
+	</cell>
+
+	<cell type="wall"/>
+
+	<cell type="wall"/>
+</world>
